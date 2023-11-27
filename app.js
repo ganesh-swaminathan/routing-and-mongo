@@ -2,6 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const routes = require('./routes')
 const dbMiddleware = require('./dbMiddleware');
+const { port } = require('./config');
 
 var app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -11,7 +12,7 @@ app.use(routes);
 
 
 async function main() {
-  app.listen(3000, () => console.log("listening on port 3000..."));
+  app.listen(port, () => console.log(`App listening to port: ${port}`));
 }
 main()
 .then()
